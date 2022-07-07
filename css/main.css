@@ -1,0 +1,762 @@
+
+/* Global */
+
+:root {
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+
+
+  --dark-blue: hsl(220, 13%, 13%);
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --lightbox-black: rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar {
+  width: .5em;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--orange);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  text-transform: capitalize;
+  font-family: 'Kumbh Sans', sans-serif;
+  line-height: 1.8;
+}
+
+i,
+a,
+button {
+  cursor: pointer;
+}
+
+[class*="sample"] {
+  display: none;
+}
+
+/* Components */
+
+.container {
+  margin: auto;
+  padding: 0 1em;
+
+}
+
+@media (min-width: 800px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1100px;
+  }
+}
+
+/* Header */ 
+
+header {
+  background-color: white;
+  --width: 0;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--width);
+  background-color: var(--lightbox-black);
+  transition-duration: .5s;
+  z-index: 2;
+}
+
+header .container {
+  padding-top: .6em;
+  padding-bottom: .6em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  header .container {
+    border-bottom: 1px solid var(--light-grayish-blue);
+  }
+
+}
+
+header .container .col {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+header .container .col .logo {
+  width: 100px;
+}
+
+@media (min-width: 900px) {
+  header .container button#open-menu {
+    display: none;
+  }
+}
+
+header .container .col .cart-container {
+  position: relative;
+}
+
+header .container .col .cart-container .items-number {
+  display: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 1px 6px;
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: .8rem;
+  border-radius: 50%;
+}
+
+header .cart-items  {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: calc(100% + 1.5em);
+  right: -3em;
+  background-color: var(--white);
+  width: max-content;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 36%);
+  transition-duration: 1s;
+  z-index: 1;
+}
+
+header .cart-items.open {
+  max-height: 1000px;
+}
+
+header .cart-items h3 {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid var(--grayish-blue);
+}
+
+header .cart-items .items {
+  padding: 3em;
+  text-align: center;
+  color: var(--dark-grayish-blue);
+}
+
+header .cart-items .items.has-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em 1em 2em;
+  text-align: left;
+}
+
+header .cart-items .items.has-items.large {
+  overflow: scroll;
+  height: 400px;
+  position: relative;
+}
+
+header .cart-items .items.has-items .item > div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: .9rem;
+}
+
+@media (max-width: 360px) {
+  header .cart-items .items.has-items .item > div {
+    width: 230px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+header .cart-items .items.has-items .item > div .item-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+header .cart-items .items.has-items .item > div p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+header .cart-items .items.has-items .item > div span.price {
+  text-transform: none;
+}
+
+header .cart-items .items.has-items .item > div span.total {
+  color: var(--black);
+  font-weight: 700;
+}
+
+header .cart-items .items.has-items .item > button {
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  color: white;
+  background-color: var(--orange);
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-top: 1em;
+  transition-duration: .5s;
+}
+
+header .cart-items .items.has-items .item > button:hover {
+  opacity: .6;
+}
+
+header .container .col .user-img img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 2px solid transparent;
+  transition-duration: .5s;
+  cursor: pointer;
+}
+
+header .container .col .user-img:hover img {
+  border-color: var(--orange);
+}
+
+@media (min-width: 900px) {
+  header .container .col .user-img img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+header nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background-color: var(--white);
+  padding: 4em 1em 0;
+  transform: translateX(-100%);
+  transition-duration: .5s;
+  z-index: 3;
+}
+
+header nav.open {
+  transform: translateX(0);
+}
+
+header nav button {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+header nav ul.links li {
+  font-weight: 700;
+  padding: .5em .2em;
+  cursor: pointer;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  header nav {
+    position: static;
+    width: max-content;
+    transform: translateX(0);
+    padding: 0;
+  }
+
+  header nav button {
+    display: none;
+  }
+
+  header nav ul.links {
+    display: flex;
+    gap: 1em;
+  }
+
+  header nav ul.links li {
+    font-weight: 400;
+    color: var(--dark-grayish-blue);
+  }
+
+  header nav ul.links li::before {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: var(--orange);
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    opacity: 0;
+    transition-duration: .5s;
+  }
+
+  header nav ul.links li:hover {
+    color: var(--black);
+  }
+
+  header nav ul.links li:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Main */
+
+main {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media (min-width: 900px) {
+  main {
+    position: static;
+    display: flex;
+    gap: 4em;
+    align-items: center;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+}
+
+main .main-img-container {
+  max-width: 500px;
+  margin: 3em auto 0;
+  position: relative;
+}
+
+main .main-img-container .images {
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+  max-width: 450px;
+  border-radius: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 900px) {
+  main .main-img-container .images {
+    width: 450px;
+  }
+}
+
+main .main-img-container .images::before {
+  content: "";
+  top: 0;
+  left: var(--position, 100%);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.43);
+  transition-duration: 1s;
+}
+
+main .main-img-container .images .view-icon-container {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.43);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition-duration: .5s;
+  pointer-events: none;
+}
+
+main .main-img-container .view-icon-container svg {
+  transform: scale(2);
+}
+
+@media (min-width: 900px) {
+  main .main-img-container .images:not(.gallery-imgs):hover img {
+    transform: rotate(5deg) scale(1.1);
+  }
+
+  main .main-img-container .images:hover .view-icon-container {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 500px) {
+  main .main-img-container {
+    margin-top: 5em;
+  }
+
+  main .main-img-container .images > img {
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 900px) {
+  main .main-img-container {
+    margin-top: 0;
+  }
+}
+
+main .main-img-container .images > button {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+main .main-img-container .images > button svg {
+  transform: scale(.7);
+}
+
+main .main-img-container .images > button path {
+  transition-duration: .5s;
+}
+
+main .main-img-container .images > button:hover path {
+  stroke: var(--orange);
+}
+
+main .main-img-container .images > button.next {
+  right: 1em;
+}
+main .main-img-container .images > button.previous {
+  left: 1em;
+}
+
+@media (min-width: 900px) {
+  main .main-img-container .images > button {
+    display: none;
+  }
+}
+
+main .main-img-container .images > img {
+  height: 55vh;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition-duration: .5s;
+}
+
+main .main-img-container .images > img:not(.current) {
+  display: none;
+}
+
+main .main-img-container .thumbnails {
+  margin-top: 1em;
+  gap: 1em;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  main .main-img-container .thumbnails {
+    display: flex;
+  }
+}
+
+main .main-img-container .thumbnails button {
+  flex-basis: 25%;
+  height: 80px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  --background: rgba(255, 255, 255, 0.359);
+}
+
+main .main-img-container .thumbnails button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background);
+  width: 0;
+  height: 0;
+  transition-duration: .2s;
+}
+
+main .main-img-container .thumbnails button:hover::before {
+  height: 100%;
+  width: 100%;
+}
+
+main .main-img-container .thumbnails button.current {
+  --background: rgba(255, 255, 255, 0.552);
+  border-color: var(--orange);
+}
+
+main .main-img-container .thumbnails button.current::before {
+  height: 100%;
+  width: 100%;
+}
+
+main .main-img-container .thumbnails button img {
+  pointer-events: none;
+  transition-duration: .5s;
+}
+
+main > .container {
+  padding-top: .5em;
+  padding-bottom: 2em;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+  main > .container {
+    text-align: center;
+  }
+}
+
+main > .container span.company {
+  text-transform: uppercase;
+  color: var(--orange);
+  letter-spacing: 1px;
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+main > .container h2 {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin-top: .4em;
+}
+
+@media (min-width: 900px) {
+  main > .container h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+}
+
+main > .container p {
+  color: var(--dark-grayish-blue);
+  margin-bottom: .8em;
+  margin-top: 1em;
+  font-size: .9rem;
+  text-transform: none;
+}
+
+main > .container .price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main > .container .price-container > div {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+main > .container .price-container .new-price {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+main > .container .price-container .discount {
+  background-color: var(--pale-orange);
+  color: var(--orange);
+  padding: .1em .4em;
+  border-radius: 5px;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+main > .container .price-container .old-price {
+  color: var(--grayish-blue);
+  text-decoration: line-through;
+  font-size: .9rem;
+}
+
+main > .container .number-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(220deg 100% 51% / 6%);
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+main > .container .number-container img {
+  transition-duration: .5s;
+}
+
+main > .container .number-container img:hover {
+  opacity: .6;
+}
+
+main > .container button.add-to-cart {
+  width: 100%;
+  padding-top: .7em;
+  padding-bottom: .7em;
+  background-color: var(--orange);
+  color: var(--white);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  transition-duration: .5s;
+}
+
+main > .container button.add-to-cart:hover {
+  opacity: .6;
+  box-shadow: 0 10px 20px 5px hsl(26deg 100% 55% / 52%);
+}
+
+@media (min-width: 900px) {
+  main > .container .price-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-control {
+    display: flex;
+    gap: .5em;
+    margin-top: 1em;
+  }
+  main > .container .number-container {
+    width: 180px;
+    margin: 0;
+  }
+
+  main > .container button.add-to-cart {
+    flex-grow: 1;
+  }
+}
+
+main > .container button.add-to-cart svg {
+  transform: scale(.8);
+}
+
+main > .container button.add-to-cart path {
+  fill: var(--white);
+}
+
+main .gallery {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  background-color: var(--lightbox-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: .5s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+main .gallery .images {
+  overflow: visible;
+}
+
+main .gallery .images::before {
+  background-color: transparent;
+}
+
+main .gallery.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+main .gallery .close-gallery-btn {
+  position: absolute;
+    top: -2em;
+    right: 0.5em;
+}
+
+main .gallery .close-gallery-btn path {
+  fill: var(--white);
+  transition-duration: .5s;
+}
+
+main .gallery .close-gallery-btn:hover path {
+  fill: var(--orange);
+}
+
+main .gallery .thumbnails {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  main .gallery {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  main .gallery .images > button {
+    display: block;
+    top: 50%;
+  }
+
+  main .gallery .images > button.next {
+    right: 0;
+    transform: translate(50%, -50%)
+  }
+
+  main .gallery .images > button.previous {
+    left: 0;
+    transform: translate(-50%, -50%)
+  }
+}

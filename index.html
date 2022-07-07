@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- Title -->
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="col">
+        <button id="open-menu">
+          <img src="images/icon-menu.svg" alt="Open The Menu">
+        </button>
+        <div class="logo"><img src="images/logo.svg" alt="Sneakers Logo"></div>
+        <nav id="main-nav">
+          <button id="close-menu"><img src="images/icon-close.svg" alt="Close The Menu"></button>
+          <ul class="links">
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-hidden="true" aria-label="Collections">
+                Collections
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-hidden="true" aria-label="Men">
+                Men
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-hidden="true" aria-label="Women">
+                Women
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-hidden="true" aria-label="About">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-hidden="true" aria-label="Contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col">
+        <div class="cart-container">
+          <span class="items-number"></span>
+          <button id="open-cart"><img src="images/icon-cart.svg" alt="Display Your Cart"></button>
+          <div class="cart-items">
+            <h3>cart</h3>
+            <div class="items">
+              <p>Your cart is empty</p>
+            </div>
+          </div>
+        </div>
+        <div class="user-img">
+          <img src="images/image-avatar.png" alt="Your Photo">
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="main-img-container">
+      <div class="images">
+        <div class="view-icon-container">
+          <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd">
+              <path d="M0 0h48v48H0z" />
+              <path
+                d="M24 9C14 9 5.46 15.22 2 24c3.46 8.78 12 15 22 15 10.01 0 18.54-6.22 22-15-3.46-8.78-11.99-15-22-15Zm0 25c-5.52 0-10-4.48-10-10s4.48-10 10-10 10 4.48 10 10-4.48 10-10 10Zm0-16c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6Z"
+                fill="hsl(26, 100%, 55%)" fill-rule="nonzero" />
+            </g>
+          </svg>
+        </div>
+        <button class="change next">
+          <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="2" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="change previous">
+          <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="2" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+        <img src="images/image-product-1.jpg" alt="The Product" class="current" data-id="1">
+        <img src="images/image-product-2.jpg" alt="The Product" data-id="2">
+        <img src="images/image-product-3.jpg" alt="The Product" data-id="3">
+        <img src="images/image-product-4.jpg" alt="The Product" data-id="4">
+      </div>
+      <div class="thumbnails">
+        <button class="current" data-id="1"><img src="images/image-product-1-thumbnail.jpg"
+            alt="Thumbnail One"></button>
+        <button data-id="2"><img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail Two"></button>
+        <button data-id="3"><img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail Three"></button>
+        <button data-id="4"><img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail Four"></button>
+      </div>
+    </div>
+    <div class="container">
+      <span class="company">sneaker company</span>
+      <h2>Fall Limited Edition Sneakers</h2>
+      <p>
+        These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.
+      </p>
+      <div class="price-container">
+        <div>
+          <span class="new-price">&dollar;<span>125.00</span></span>
+          <span class="discount">50%</span>
+        </div>
+        <span class="old-price">$250.00</span>
+      </div>
+      <div class="cart-control">
+        <div class="number-container">
+          <button class="minus-btn"><img src="images/icon-minus.svg" alt="Decrease By One"></button>
+          <span class="current-number">0</span>
+          <button class="plus-btn"><img src="images/icon-plus.svg" alt="Increase By One"></button>
+        </div>
+        <button class="add-to-cart">
+          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+              fill="#69707D" fill-rule="nonzero" />
+          </svg>
+          <span>Add to cart</span>
+        </button>
+      </div>
+    </div>
+
+    <section class="gallery" aria-label="Gallery">
+      <div class="main-img-container">
+        <button class="close-gallery-btn">
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#69707D" fill-rule="evenodd" />
+          </svg>
+        </button>
+        <div class="images gallery-imgs">
+          <button class="change next">
+            <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="2" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <button class="change previous">
+            <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="2" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <img src="images/image-product-1.jpg" alt="The Product" class="current" data-id="1">
+          <img src="images/image-product-2.jpg" alt="The Product" data-id="2">
+          <img src="images/image-product-3.jpg" alt="The Product" data-id="3">
+          <img src="images/image-product-4.jpg" alt="The Product" data-id="4">
+        </div>
+        <div class="thumbnails">
+          <button class="current" data-id="1"><img src="images/image-product-1-thumbnail.jpg"
+              alt="Thumbnail One"></button>
+          <button data-id="2"><img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail Two"></button>
+          <button data-id="3"><img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail Three"></button>
+          <button data-id="4"><img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail Four"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+<section class="cart-item-sample" aria-label="cart item">
+  <div class="item">
+    <div>
+      <img src="#" alt="The Product" class="item-img">
+      <div class="details">
+        <p></p>
+        <div>
+          <span class="price"></span>
+          <span class="number"></span>
+          <span class="total"></span>
+        </div>
+      </div>
+      <button class="delete-item-btn"><img src="images/icon-delete.svg" alt="Delete Item From The Cart"></button>
+    </div>
+    <button>
+      <a href="#" target="_blank" rel="noopener noreferrer">checkout</a>
+    </button>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+
+</html>
