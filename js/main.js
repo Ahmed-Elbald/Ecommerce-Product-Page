@@ -198,7 +198,7 @@ function makeItem() {
 
     newItem = {
       id: getMax() + 1,
-      name: textContainer.querySelector("h2").innerHTML,
+      name: textContainer.querySelector("h1").innerHTML,
       price: parseInt(textContainer.querySelector(".new-price span").innerHTML).toFixed(2),
       number: +itemsToBuy,
       total: this.price * this.number,
