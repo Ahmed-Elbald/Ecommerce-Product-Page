@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   openNavBtn.addEventListener("click", () => manageNav("open"));
   closeNavBtn.addEventListener("click", () => manageNav("close"));
 
-  cartBtn.addEventListener("click", () => manageCart());
+  manageCart()
 
   slideBtns.forEach(element => {
     element.addEventListener("click", (event) => manageSlides(event))
@@ -81,7 +81,15 @@ function manageNav(order) {
 // A function to open and close the cart
 
 function manageCart() {
-  cart.classList.toggle("open");
+  document.addEventListener("click", (event) => {
+    if (event.target.isSameNode(cartBtn)) {
+      cart.classList.toggle("open");
+    } else if (isDescendant(cart, event.target) == 0) {
+      console.log(isDescendant(cart, event.target))
+      cart.classList.remove("open");
+    }
+  })
+
 }
 
 
@@ -317,4 +325,33 @@ function getMax() {
     }
     return max;
   }
+}
+
+
+// A function to detect whether an element is a descendant of an element
+
+function isDescendant(parent, element) {
+
+  if (parent.isSameNode(element)) {
+    return 1;
+  }
+
+  let found = false;
+  function isChild(childs) {
+    for (let i of childs) {
+      if (i.isSameNode(element)) {
+        found = true;
+        return 2;
+      }
+      if (i.children) {
+        isChild(i.children)
+        if (found) {
+          return 2;
+        }
+      }
+    }
+    return 0;
+  }
+
+  return isChild(parent.children);
 }
