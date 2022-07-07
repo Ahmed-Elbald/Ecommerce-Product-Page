@@ -240,9 +240,10 @@ header .cart-items .items.has-items .item > div span.total {
   font-weight: 700;
 }
 
-header .cart-items .items.has-items .item > button {
+header .cart-items .items.has-items .item > a {
+  display: block;
   width: 100%;
-  padding: 1em;
+  padding: .5em;
   text-align: center;
   color: white;
   background-color: var(--orange);
@@ -253,7 +254,7 @@ header .cart-items .items.has-items .item > button {
   transition-duration: .5s;
 }
 
-header .cart-items .items.has-items .item > button:hover {
+header .cart-items .items.has-items .item > a:hover {
   opacity: .6;
 }
 
@@ -570,7 +571,7 @@ main > .container span.company {
   font-weight: 700;
 }
 
-main > .container h2 {
+main > .container h1 {
   font-size: 1.8rem;
   line-height: 1.4;
   margin-top: .4em;
